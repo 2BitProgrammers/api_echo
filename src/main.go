@@ -72,7 +72,7 @@ func getPayload(r *http.Request) string {
 
 // Generic handler for all endpoints
 //
-func ratGetHttpEcho(w http.ResponseWriter, r *http.Request) {
+func ratGetHTTPEcho(w http.ResponseWriter, r *http.Request) {
 	status := http.StatusOK
 	ip, port, ua := getRemoteClientInfo(r)
 	method := r.Method
@@ -98,6 +98,6 @@ func main() {
 	fmt.Printf("%s v%s\n", appName, appVersion)
 	fmt.Println("www.2BitProgrammers.com\nCopyright (C) 2020. All Rights Reserved.\n")
 	fmt.Println("Listening on:  " + appListenPort + "\n")
-	http.HandleFunc("/", ratGetHttpEcho)
+	http.HandleFunc("/", ratGetHTTPEcho)
 	log.Fatal(http.ListenAndServe(":"+appListenPort, nil))
 }
