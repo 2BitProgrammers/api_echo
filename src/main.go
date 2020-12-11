@@ -79,12 +79,14 @@ func ratGetHTTPEcho(w http.ResponseWriter, r *http.Request) {
 	uri := r.RequestURI
 	headers := getHeaders(r)
 	payload := getPayload(r)
-	fmt.Println(time.Now().Local(), "\t", method, "\t", "\t", uri, "\t", status, "\t", ip, "\t", ua)
 	response := tHealthy{status, headers, method, uri, payload, ip, port, ua, true}
 	joResponse, err := json.Marshal(response)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
+		fmt.Printf("%s\t[ERROR] faled to marshal response:  %s\n\n", time.Now().Local(), response)
 		return
+	} else {
+		fmt.Printf("%s\t%s\n\n", time.Now().Local(), joResponse)
 	}
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(status)

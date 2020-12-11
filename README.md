@@ -112,10 +112,11 @@ Copyright (C) 2020. All Rights Reserved.
 
 Listening on:  1234
 
-2020-12-09 19:48:07.7554606 +0000 UTC    GET             /abc    200     172.17.0.1      Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36
-2020-12-09 19:48:13.1801922 +0000 UTC    GET             /test   200     172.17.0.1      Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36
-2020-12-08 17:30:31.6822105 -0800 PST    POST            /test/my/uri   200     127.0.0.1       curl/7.55.1
-2020-12-08 17:31:14.3062692 -0800 PST    POST            /test/my/uri   200     127.0.0.1       curl/7.55.1
+2020-12-09 19:48:07.7554606 +0000 UTC    {"statusCode":200,"headers":["User-Agent::[curl/7.55.1]","Accept::[*/*]"],"method":"GET","uri":"/health","payload":"","clientIp":"127.0.0.1","clientPort":"62907","userAgent":"curl/7.55.1","healthy":true}
+
+2020-12-09 19:48:13.1801922 +0000 UTC    {"statusCode":200,"headers":["User-Agent::[curl/7.55.1]","Accept::[*/*]"],"method":"GET","uri":"/test/my/uri","payload":"","clientIp":"127.0.0.1","clientPort":"62934","userAgent":"curl/7.55.1","healthy":true}
+
+2020-12-08 17:30:31.6822105 -0800 PST    {"statusCode":200,"headers":["User-Agent::[curl/7.55.1]","Accept::[*/*]","Content-Type::[application/json]","Content-Length::[37]"],"method":"POST","uri":"/test/my/uri","payload":"{ \"name\": \"bubba\", \"int_value\": 987 }","clientIp":"127.0.0.1","clientPort":"62881","userAgent":"curl/7.55.1","healthy":true}
 
 CTRL+C
 ```
@@ -139,7 +140,7 @@ A simple GET request:
 ```bash
 $ curl http://localhost:1234/test/my/uri 
 
-{"statusCode":200,"headers":["Sec-Fetch-Site::[none]","Sec-Fetch-Mode::[navigate]","Accept-Language::[en-US,en;q=0.9]","Cookie::[Pycharm-42083dc3=45bb8e9b-de30-425f-acf2-5c413b44818c]","Connection::[keep-alive]","Upgrade-Insecure-Requests::[1]","User-Agent::[Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36]","Accept::[text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9]","Sec-Fetch-Dest::[document]","Accept-Encoding::[gzip, deflate, br]"],"method":"GET","uri":"/test/my/uri","payload":"","clientIp":"172.17.0.1","clientPort":"39340","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36","healthy":true}
+{"statusCode":200,"headers":["User-Agent::[curl/7.55.1]","Accept::[*/*]"],"method":"GET","uri":"/test/my/uri","payload":"","clientIp":"127.0.0.1","clientPort":"62907","userAgent":"curl/7.55.1","healthy":true}
 ```
 
 POST Example - for Linux:
